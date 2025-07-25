@@ -2,131 +2,153 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Facebook Login Clone</title>
-    <meta name="viewport" content="width=400, initial-scale=1.0">
+    <title>Responsive Footer For Company</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            background-color: #f6f6f6;
+            margin: 0;
+            background: #222;
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            width: 100vw;
+            padding: 0;
+        }
+        .link-boxes {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: "Segoe UI", Arial, sans-serif;
+            align-items: flex-start;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 40px 14px 16px 14px;
+            gap: 38px;
+        }
+        .box {
+            min-width: 130px;
+            margin-bottom: 18px;
+        }
+        .box h3 {
+            font-size: 1.13rem;
+            margin-bottom: 15px;
+            margin-top: 0;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .box ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
         }
-        .left {
-            width: 450px;
-            margin-top: 70px;
-            display: inline-block;
-        }
-        .left img {
-            width: 260px;
-            margin-bottom: 20px;
-        }
-        .left .desc {
-            font-size: 1.5rem;
-            color: #1c1e21;
-            line-height: 1.3;
-        }
-        .right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 300px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px #ccc;
-        }
-        form input[type="text"],
-        form input[type="password"] {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
+        .box ul li {
+            margin-bottom: 7px;
             font-size: 1rem;
         }
-        form button[type="submit"] {
-            background-color: #1877f2;
-            border-radius: 5px;
-            padding: 10px 20px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 3px;
-        }
-        form button[type="submit"]:hover {
-            background-color: #145ccd;
-        }
-        form a {
+        .box ul li a {
+            color: #bbb;
             text-decoration: none;
-            color: #1877f2;
-            font-size: 0.98rem;
-            text-align: center;
-            margin-top: 5px;
+            transition: color 0.2s;
         }
-        .signup {
-            margin-top: 18px;
-            background-color: #42b72a;
+        .box ul li a:hover {
             color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 12px 0;
-            width: 300px;
-            font-size: 1.04rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 1px 2px #ccc;
-            transition: background 0.15s;
+            text-decoration: underline;
         }
-        .signup:hover {
-            background-color: #369221;
+        .contact-number {
+            font-size: 1.1rem;
+            color: #bbb;
+            margin-bottom: 7px;
         }
-        @media (max-width: 950px) {
-            body {
+        .media-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .media-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #444;
+            color: #fff;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: background 0.18s;
+        }
+        .media-icons a.facebook { background: #3b5999; }
+        .media-icons a.twitter { background: #55acee; }
+        .media-icons a.instagram { background: #e4405f; }
+        .media-icons a.linkedin { background: #0077b5; }
+        .media-icons a.youtube { background: #ff0000; }
+        .media-icons a:hover { opacity: 0.8; }
+        .box:last-child .media-icons { margin-top: 10px;}
+        @media (max-width: 850px) {
+            .link-boxes { gap: 20px; }
+            .box { min-width: 120px; }
+        }
+        @media (max-width: 600px) {
+            .link-boxes {
                 flex-direction: column;
-                justify-content: flex-start;
+                align-items: stretch;
+                gap: 14px;
+                padding: 28px 4vw 12px 4vw;
             }
-            .left, .right { margin-top: 24px }
-        }
-        @media (max-width: 700px) {
-            body { flex-direction: column; }
-            .left {
-                width: 95vw;
-                max-width: 420px;
-                margin: 30px auto 0 auto;
-            }
-            .right form, .signup { width: 90vw; max-width: 330px; }
-        }
-        @media (max-width: 480px) {
-            body { padding: 8px;}
-            .left { width: 100vw; max-width: 100%; }
-            .right form, .signup { width: 97vw; max-width: 98vw;}
+            .box { min-width: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="left">
-        <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook logo">
-        <div class="desc">
-            Facebook helps you connect and share with the people in your life.
+    <footer>
+        <div class="link-boxes">
+            <div class="box">
+                <h3>Home</h3>
+                <ul>
+                    <li><a href="#">Main</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Company Story</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">App Development</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Contact</h3>
+                <div class="contact-number">8879887262</div>
+                <ul>
+                    <li><a href="mailto:info@company.com">info@company.com</a></li>
+                    <li><a href="#">Location</a></li>
+                </ul>
+                <div class="media-icons">
+                    <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="right">
-        <form autocomplete="off">
-            <input type="text" id="email" placeholder="Email address or phone number">
-            <input type="password" id="password" placeholder="Password">
-            <button type="submit">Log in</button>
-            <a href="https://www.facebook.com/login/identify/" target="_blank">Forgotten account?</a>
-        </form>
-        <button class="signup">Create new account</button>
-    </div>
+    </footer>
 </body>
 </html>
